@@ -1,2 +1,2 @@
 # handsomezebra-website
-static "linktree" style website for handsomezebra llc
+static "linktree" style website for handsomezebra
