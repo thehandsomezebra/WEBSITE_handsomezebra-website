@@ -1,253 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Handsome Zebra</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Handsome Zebra" />
-    <meta name="keywords" content="creative, link tree" />
-    <meta name="developer" content="Stephanie Lage Frantz" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Handsome Zebra</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter, Roboto, and Abel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Define custom theme colors */
+        :root {
+            --dark-purple: #1A102C;
+            --light-purple: #2A1A40;
+            --kinda-black: #100e17;
+            --glow-magenta: #F400A1;
+            --glow-amber: #FFC700;
+            --custom-teal: #0bceaf;
+            --custom-teal-hover: #0b927c;
+        }
 
-    <!-- FAV AND ICONS   -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
-    <link rel="shortcut icon" href="assets/images/apple-icon.png" />
-    <link
-      rel="shortcut icon"
-      sizes="72x72"
-      href="assets/images/apple-icon-72x72.png"
-    />
-    <link
-      rel="shortcut icon"
-      sizes="114x114"
-      href="assets/images/apple-icon-114x114.png"
-    />
+        /* Applying the Inter font and new background color */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-purple); 
+        }
 
-    <!-- Google Font-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Abel"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="assets/icons/font-awesome-4.7.0/css/font-awesome.min.css"
-    />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/plugins/css/bootstrap.min.css" />
-    <!-- Animate CSS-->
-    <link rel="stylesheet" href="assets/plugins/css/animate.css" />
-    <!-- Owl Carousel CSS-->
-    <link rel="stylesheet" href="assets/plugins/css/owl.css" />
-    <!-- Fancybox-->
-    <link rel="stylesheet" href="assets/plugins/css/jquery.fancybox.min.css" />
+        /* Applying Abel font to the main header */
+        .main-header {
+            font-family: 'Abel', sans-serif;
+        }
+        
+        /* Custom class for the teal buttons with new border styling */
+        .teal-button {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--custom-teal);
+            color: black;
+            font-weight: 400; /* Normal weight */
+            font-size: 17px;
+            border: 1px solid black;
+            opacity: 0.9;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .teal-button:hover {
+            background-color: var(--custom-teal-hover);
+            opacity: 1;
+        }
+        
+        /* Keyframes for the fadeInUp animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
 
-    <!-- Custom CSS-->
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+        /* Custom class for section headers with new styling */
+        .section-header {
+            font-family: 'Abel', sans-serif;
+            color: white;
+            /* Animation properties */
+            animation-name: fadeInUp;
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+        
+        /* New class for the accent gradient line */
+        .accent-line {
+            height: 2px;
+            width: 80px;
+            margin: 0 auto 25px auto; /* Center it and add space below */
+            background: linear-gradient(to right, var(--glow-magenta), var(--glow-amber));
+            animation-name: fadeInUp;
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+    </style>
+    <script>
+        // Configuration for Tailwind CSS to use our custom color
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-header-bg': '#100e17', // --kinda-black
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-200">
 
-    <!-- Colors -->
-    <link
-      rel="stylesheet"
-      href="assets/css/colors/defauld.css"
-      title="defauld"
-    />
-  </head>
-  <body class="dark-vertion black-bg">
-    <!-- Start Loader -->
-    <div class="section-loader">
-      <div class="loader">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-    <!-- End Loader -->
-
-    <!--
-        ===================
-           NAVIGATION
-        ===================
-        -->
-    <header
-      class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav nav-strict"
-      id="mh-header"
-    >
-      <div class="overlay"></div>
-
-      <div class="container">
-        <h1 class="title-custom">The Handsome Zebra</h1>
-      </div>
+    <!-- Top Header Bar -->
+    <header class="sticky top-0 z-10 bg-custom-header-bg/75 backdrop-blur-sm">
+        <div class="container mx-auto text-center py-4 px-2">
+            <h1 class="main-header text-white font-medium uppercase text-[32px] tracking-[8px] leading-tight">THE HANDSOME ZEBRA</h1>
+        </div>
     </header>
 
-    <br /><br /><br />
-    <!--
-        ===================
-           ABOUT
-        ===================
-        -->
+    <!-- Main Container -->
+    <div class="container mx-auto flex flex-col items-center justify-center min-h-screen p-4 pt-10">
 
-    <div
-      class="mh-about-inner container wow fadeInUp"
-      style="text-align:center"
-    >
-      <br />
-      <p>
-        Hi, I'm Stephanie, The Handsome Zebra.
-      </p>
-      <p>I'm a developer, an artist and a creative problem-solver.</p>
+        <!-- Intro Section -->
+        <section class="text-center w-full max-w-lg mb-10">
+            <p class="text-lg text-gray-200">
+                Hi, I'm Stephanie, The Handsome Zebra.
+                <br>
+                I'm a developer, an artist, and a creative problem-solver.
+            </p>
+        </section>
+
+        <!-- Links Section -->
+        <main class="w-full max-w-md">
+
+            <!-- Developer Section -->
+            <section class="mb-8">
+                <h2 class="section-header text-center font-medium uppercase tracking-[5px] text-xl mb-3">DEVELOPER</h2>
+                <div class="accent-line"></div>
+                <div class="space-y-2">
+                    <a href="https://www.stephaniefrantz.com" class="block w-full text-center p-2 teal-button">Resume & Portfolio</a>
+                    <a href="https://www.github.com/thehandsomezebra" class="block w-full text-center p-2 teal-button">GitHub</a>
+                </div>
+            </section>
+
+            <!-- Creative Section -->
+            <section class="mb-8">
+                <h2 class="section-header text-center font-medium uppercase tracking-[5px] text-xl mb-3" style="animation-delay: 0.1s;">CREATIVE</h2>
+                <div class="accent-line" style="animation-delay: 0.1s;"></div>
+                <div class="space-y-2">
+                    <a href="https://www.etsy.com/shop/handsomezebra" class="block w-full text-center p-2 teal-button">Etsy [Journal Designs & Vector Artwork]</a>
+                    <a href="https://www.redbubble.com/people/handsomezebra/" class="block w-full text-center p-2 teal-button">RedBubble [My Art on T-Shirts, Stickers & More]</a>
+                    <a href="https://www.amazon.com/s?rh=n%3A7141123011%2Cp_4%3ADesigns+by+The+Handsome+Zebra" class="block w-full text-center p-2 teal-button">Amazon [T-Shirts Eligible for Amazon Prime]</a>
+                    <a href="https://handsomezebra.gumroad.com/" class="block w-full text-center p-2 teal-button">Gumroad [Vector Artwork Licenses]</a>
+                </div>
+            </section>
+
+            <!-- Get Social Section -->
+            <section class="mb-8">
+                <h2 class="section-header text-center font-medium uppercase tracking-[5px] text-xl mb-3" style="animation-delay: 0.2s;">GET SOCIAL</h2>
+                <div class="accent-line" style="animation-delay: 0.2s;"></div>
+                <div class="space-y-2">
+                    <a href="https://defcon.social/@handsomezebra" class="block w-full text-center p-2 teal-button">Mastodon</a>
+                    <a href="https://www.instagram.com/handsomezebra/" class="block w-full text-center p-2 teal-button">Instagram</a>
+                    <!-- <a href="https://medium.com/@HandsomeZebra" class="block w-full text-center p-2 teal-button">Medium Posts</a> -->
+                    <a href="https://dev.to/thehandsomezebra" class="block w-full text-center p-2 teal-button">Dev.to Posts</a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="text-center w-full max-w-lg mt-10 mb-16">
+            <div class="flex items-center justify-center space-x-6 mb-4">
+                <!-- GitHub Icon -->
+                <a href="https://github.com/thehandsomezebra" class="text-gray-300 hover:text-white transition-colors duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                </a>
+                <!-- LinkedIn Icon -->
+                <a href="https://www.linkedin.com/in/stephanielage/" class="text-gray-300 hover:text-white transition-colors duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+            <p class="text-xs text-gray-500">
+                All rights reserved Stephanie Frantz | 2025
+            </p>
+        </footer>
+
     </div>
 
-    <section class="mh-about" id="mh-about">
-      <div class="container">
-        <div class="row section-separator">
-          <div class="col-sm-12 col-md-12">
-            <div class="mh-about-inner">
-              <h2
-                class="wow fadeInUp title-custom"
-                data-wow-duration="0.8s"
-                data-wow-delay="0.1s"
-              >
-                DEVELOPER
-              </h2>
-              <div
-                class="links"
-                class="wow fadeInUp"
-                data-wow-duration="0.8s"
-                data-wow-delay="0.2s"
-              >
-                <a href="https://www.stephaniefrantz.com"
-                  >Resume &amp; Portfolio</a
-                >
-                <a href="https://www.github.com/thehandsomezebra">Github</a>
-              </div>
-              <h2
-                class="wow fadeInUp title-custom"
-                data-wow-duration="0.8s"
-                data-wow-delay="0.1s"
-              >
-                CREATIVE
-              </h2>
-              <div
-                class="links"
-                class="wow fadeInUp"
-                data-wow-duration="0.8s"
-                data-wow-delay="0.2s"
-              >
-                <a href="https://www.etsy.com/shop/handsomezebra"
-                  >Etsy [Journal Designs & Vector Artwork]</a
-                >
-                <a href="https://www.redbubble.com/people/handsomezebra/"
-                  >RedBubble [My Art on T-Shirts, Stickers & More]</a
-                >
-                <a
-                  href="https://www.amazon.com/s?rh=n%3A7141123011%2Cp_4%3ADesigns+by+The+Handsome+Zebra"
-                  >Amazon [T-Shirts Eligible for Amazon Prime]</a
-                >
-                <a
-                  href="https://handsomezebra.gumroad.com/"
-                  >Gumroad [Vector Artwork Licenses]</a
-                >
-              </div>
-              <h2
-                class="wow fadeInUp title-custom"
-                data-wow-duration="0.8s"
-                data-wow-delay="0.1s"
-              >
-                GET SOCIAL
-              </h2>
-              <div
-                class="links"
-                class="wow fadeInUp"
-                data-wow-duration="0.8s"
-                data-wow-delay="0.2s"
-              >
-                <a href="https://defcon.social/@handsomezebra">Mastodon</a>
-                <a href="https://www.instagram.com/handsomezebra/">Instagram</a>
-               <!-- <a href="https://medium.com/@HandsomeZebra">Blog Posts</a> -->
-                <a href="https://dev.to/thehandsomezebra">Dev.to Posts</a>
-                                                           
-                            </div>
-             
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="mh-footer mh-footer-3 lineup">
-      <div class="col-sm-6">
-        <div class="text-center text-xs-center">
-          <p>All rights reserved Stephanie Frantz &mid; 2025</p>
-        </div>
-      </div>
-      <div class="col-sm-6 text-center">
-        <ul class="social-icon">
-          <li>
-            <a href="https://github.com/thehandsomezebra"
-              ><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg></a>
-          </li>
-                   <li>
-            <a href="https://defcon.social/@handsomezebra"
-              ><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.193 7.88c0-5.207-3.411-6.733-3.411-6.733C18.062.357 15.108.025 12.041 0h-.076c-3.069.025-6.02.357-7.74 1.147 0 0-3.412 1.526-3.412 6.732 0 1.193-.023 2.619.015 4.13.124 5.092.934 10.11 5.641 11.355 2.17.574 4.034.695 5.536.612 2.722-.15 4.25-.972 4.25-.972l-.09-1.975s-1.945.613-4.13.54c-2.165-.075-4.449-.234-4.799-2.892a5.5 5.5 0 0 1-.048-.745s2.125.52 4.818.643c1.646.075 3.19-.097 4.758-.283 3.007-.359 5.625-2.212 5.954-3.905.517-2.665.475-6.508.475-6.508zm-4.024 6.709h-2.497v-6.12c0-1.29-.543-1.944-1.628-1.944-1.2 0-1.802.776-1.802 2.313v3.349h-2.484v-3.35c0-1.537-.602-2.313-1.802-2.313-1.085 0-1.628.655-1.628 1.945v6.119H4.831V8.285c0-1.29.328-2.314.987-3.07.68-.759 1.57-1.147 2.674-1.147 1.278 0 2.246.491 2.886 1.474L12 6.585l.622-1.043c.64-.983 1.608-1.474 2.886-1.474 1.104 0 1.994.388 2.674 1.146.658.757.986 1.781.986 3.07v6.305z"/></svg></a>
-          </li>
-
-          <li>
-            <a href="https://www.instagram.com/handsomezebra/"
-              ><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-<path d="M11 3.5H12M4.5 0.5H10.5C12.7091 0.5 14.5 2.29086 14.5 4.5V10.5C14.5 12.7091 12.7091 14.5 10.5 14.5H4.5C2.29086 14.5 0.5 12.7091 0.5 10.5V4.5C0.5 2.29086 2.29086 0.5 4.5 0.5ZM7.5 10.5C5.84315 10.5 4.5 9.15685 4.5 7.5C4.5 5.84315 5.84315 4.5 7.5 4.5C9.15685 4.5 10.5 5.84315 10.5 7.5C10.5 9.15685 9.15685 10.5 7.5 10.5Z" stroke="#000000"/>
-</svg></a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/stephanielage/"
-              ><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-
-    <!--
-    ==============
-    * JS Files *
-    ==============
-    -->
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-    <!-- jQuery -->
-    <script src="assets/plugins/js/jquery.min.js"></script>
-    <!-- popper -->
-    <script src="assets/plugins/js/popper.min.js"></script>
-    <!-- bootstrap -->
-    <script src="assets/plugins/js/bootstrap.min.js"></script>
-    <!-- owl carousel -->
-    <script src="assets/plugins/js/owl.carousel.js"></script>
-    <!-- validator -->
-    <script src="assets/plugins/js/validator.min.js"></script>
-    <!-- wow -->
-    <script src="assets/plugins/js/wow.min.js"></script>
-    <!-- mixin js-->
-    <script src="assets/plugins/js/jquery.mixitup.min.js"></script>
-    <!-- circle progress-->
-    <script src="assets/plugins/js/circle-progress.js"></script>
-    <!-- jquery nav -->
-    <script src="assets/plugins/js/jquery.nav.js"></script>
-    <!-- Fancybox js-->
-    <script src="assets/plugins/js/jquery.fancybox.min.js"></script>
-    <!-- Map api -->
-    <!-- <script src="//maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCRP2E3BhaVKYs7BvNytBNumU0MBmjhhxc"></script> -->
-    <!-- isotope js-->
-    <script src="assets/plugins/js/isotope.pkgd.js"></script>
-    <script src="assets/plugins/js/packery-mode.pkgd.js"></script>
-    <!-- Custom Scripts-->
-    <!-- <script src="assets/js/map-init.js"></script> -->
-    <script src="assets/js/custom-scripts.js"></script>
-  </body>
+</body>
 </html>
